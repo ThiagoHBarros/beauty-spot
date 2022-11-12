@@ -45,3 +45,6 @@ const servico = new Schema({
 });
 
 module.exports = mongoose.model('Servico', servico);
+module.exports ={
+    Servico: mongoose.model('Servico', servico)
+}
