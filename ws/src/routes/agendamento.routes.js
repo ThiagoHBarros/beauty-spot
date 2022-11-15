@@ -10,9 +10,9 @@ const salao = require('../models/salao')
 const servico = require('../models/servico')
 const Agendamento = require('../models/agendamento')
 const horario = require('../models/horario')
-const colaboradorServico = require('../models/relationship/colaboradorServico')
-const salaoColaborador = require('../models/relationship/salaoColaborador')
-const salaoCliente = require('../models/relationship/salaoCliente')
+const colaboradorServico = require('../models/relacionamento/colaboradorServico')
+const salaoColaborador = require('../models/relacionamento/salaoColaborador')
+const salaoCliente = require('../models/relacionamento/salaoCliente')
 const util = require('../util')
 const keys = require('../data/keys.json')
     //Criar agendamento
@@ -62,7 +62,7 @@ router.post('/', async(req, res) => {
                 card_expiration_date: "1123",
                 card_cvv: "123",
                 postback_url: "http://requestb.in/pkt7pgpk",
-                //dados ClienteS
+                //dados Cliente
                 customer: {
                     id: clientes.pagadorId
                 },
@@ -75,7 +75,7 @@ router.post('/', async(req, res) => {
                         city: clientes.endereco.cidade,
                         neighborhood: clientes.endereco.bairro,
                         street: clientes.endereco.rua,
-                        street_number: cl ientes.endereco.numero,
+                        street_number: clientes.endereco.numero,
                         zipcode: clientes.endereco.cep
                     }
                 },

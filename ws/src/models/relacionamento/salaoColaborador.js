@@ -1,30 +1,25 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
-
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 const salaoColaborador = new Schema({
     salaoId: {
         type: mongoose.Types.ObjectId,
-        ref: 'Salao',      
-        required: true,  
+        ref: 'Salao',
+        required: true
     },
     colaboradorId: {
         type: mongoose.Types.ObjectId,
-        ref: 'Colaborador',      
-        required: true,  
-    },  
+        ref: 'Colaborador',
+        required: true
+    },
     status: {
         type: String,
-        enum: ['Ativo', 'Inativo'], 
-        required: true,
-        default: 'Ativo',
+        enum: ['A', 'I', 'E'],
+        required: [true, 'Status Obrigatório'],
+        default: 'A'
     },
-   
     dataCadastro: {
         type: Date,
-        default: Date.now ,
+        default: Date.now,
     },
-
-
-});
-
-module.exports = mongoose.model('SalaoColaborador', salaoColaborador);
+})
+module.exports = mongoose.model('SalaoColaborador', salaoColaborador)

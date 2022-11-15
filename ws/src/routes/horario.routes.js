@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const _ = require('lodash')
 const Horario = require('../models/horario')
-const colaboradorServico = require('../models/relationship/colaboradorServico')
+const colaboradorServico = require('../models/relacionamento/colaboradorServico');
 router.post('/', async(req, res) => {
     try {
         const horario = await new Horario(req.body).save()
