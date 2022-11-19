@@ -27,7 +27,7 @@ router.post('/', async(req, res) => {
                 'nome endereco pagadorId')
             //recuperar o salão
         const saloes = await salao.findById(salaoId)
-            .select('recipientId')
+            .select('salaoId')
             //recuperar o serviço
         const servicos = await servico.Servico.findById(servicoId)
             .select('preco titulo comissao')
@@ -90,17 +90,17 @@ router.post('/', async(req, res) => {
                 split_rules: [
                     //Taxa do Salão
                     {
-                        recipient_id: saloes.recipientId,
+                        salao_id: saloes.salaoId,
                         amount: taxaSalao
                     },
                     //Taxa do Colaborador
                     {
-                        recipient_id: colaboradores.recipientId,
+                        salao_id: colaboradores.salaoId,
                         amount: comissao
                     },
                     //Taxa do app
                     {
-                        recipient_id: keys.recipientId,
+                        salao_id: keys.salaoId,
                         amount: taxaApp
                     }
                 ]

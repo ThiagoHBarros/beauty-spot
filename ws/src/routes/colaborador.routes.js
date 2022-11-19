@@ -48,7 +48,7 @@ router.post('/', async(req, res) => {
             //criar colaborador
             novoColaborador = await new Colaborador({
                 ...colaborador,
-                recipientId: pagarmeRecebedor.data.id
+                recipienteId: pagarmeRecebedor.data.id
             }).save({ session })
         }
         //relacionamento
